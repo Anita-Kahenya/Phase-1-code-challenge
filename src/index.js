@@ -62,6 +62,14 @@ function fetchingData(){
     .then((data)=>{
         console.log(data)
     }
-    
     )
+}
+
+function createCharacters(data){
+    data.forEach((data)=>{
+        const createSpan=document.createElement("span")
+        createSpan.innerText=data.name
+        characterBar.appendChild(createSpan)
+  
+    })
 }
