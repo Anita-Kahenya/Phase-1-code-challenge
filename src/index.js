@@ -83,3 +83,11 @@ function createCharacters(data){
   
     })
 }
+
+voteForm.addEventListener("submit", (event) =>{
+    event.preventDefault();
+    const freshVotes=parseInt(event.target.votes.value)
+    
+    let currentVotes=parseInt(characterVoteCount.textContent)
+    let finalVotes= (currentVotes+=freshVotes)
+})
