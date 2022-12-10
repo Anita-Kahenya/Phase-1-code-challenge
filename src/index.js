@@ -48,6 +48,20 @@
 // fetch("http://localhost:3000/characters")
 // .then((response)=>response.json())
 // .then((data)=>renderName(data))
-
+document.addEventListener("DOMContentLoaded",() => {
+    fetchingData()
+})
 const baseUrl="http://localhost:3000/characters"
 const characterBar=document.querySelector("#character-bar")
+const characterName=document.querySelector("#name")
+const characterImage=document.querySelector("#image")
+
+function fetchingData(){
+    fetch(baseUrl)
+    .then((response)=>response.json())
+    .then((data)=>{
+        console.log(data)
+    }
+    
+    )
+}
