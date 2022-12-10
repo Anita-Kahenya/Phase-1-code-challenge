@@ -49,27 +49,34 @@
 // .then((response)=>response.json())
 // .then((data)=>renderName(data))
 document.addEventListener("DOMContentLoaded",() => {
-    fetchingData()
-})
-const baseUrl="http://localhost:3000/characters"
-const characterBar=document.querySelector("#character-bar")
-const characterName=document.querySelector("#name")
-const characterImage=document.querySelector("#image")
-
+    fetchingData();
+});
+const baseUrl = "http://localhost:3000/characters"
+const characterBar = document.getElementById("character-bar");
+const characterName = document.getElementById("name");
+const characterImage = document.getElementById("image");
+const characterVoteCount=document.getElementById("vote-count")
 function fetchingData(){
     fetch(baseUrl)
     .then((response)=>response.json())
     .then((data)=>{
-        console.log(data)
-    }
-    )
+        // console.log(data)
+        createCharacters(data)
+    })
 }
 
 function createCharacters(data){
     data.forEach((data)=>{
         const createSpan=document.createElement("span")
-        createSpan.innerText=data.name
+        createSpan.innerText = data.name
+
+  
         characterBar.appendChild(createSpan)
+        createSpan.addEventListener("click", () =>{
+            characterName.textContent = data.name;
+            characterImage.setAttribute("src", data.image);
+            characterVoteCount.textContent = data.votes;
+        })
   
     })
 }
