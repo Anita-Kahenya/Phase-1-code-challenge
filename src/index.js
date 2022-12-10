@@ -90,4 +90,5 @@ voteForm.addEventListener("submit", (event) =>{
     
     let currentVotes=parseInt(characterVoteCount.textContent)
     let finalVotes= (currentVotes+=freshVotes)
+    characterVoteCount.textContent=finalVotes
 })
