@@ -55,7 +55,10 @@ const baseUrl = "http://localhost:3000/characters"
 const characterBar = document.getElementById("character-bar");
 const characterName = document.getElementById("name");
 const characterImage = document.getElementById("image");
-const characterVoteCount=document.getElementById("vote-count")
+const characterVoteCount = document.getElementById("vote-count")
+const voteForm = document.getElementById("votes-form")
+
+
 function fetchingData(){
     fetch(baseUrl)
     .then((response)=>response.json())
@@ -66,7 +69,7 @@ function fetchingData(){
 }
 
 function createCharacters(data){
-    data.forEach((data)=>{
+    data.map((data)=>{
         const createSpan=document.createElement("span")
         createSpan.innerText = data.name
 
