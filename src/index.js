@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded",() => {
     fetchingData();
 });
 
-//Creating the variables that are going to be in use 
+//Creating the variables that are going to be in use. 
 const baseUrl = "http://localhost:3000/characters"
 const characterBar = document.getElementById("character-bar");
 const characterName = document.getElementById("name");
@@ -11,7 +11,7 @@ const characterImage = document.getElementById("image");
 const characterVoteCount = document.getElementById("vote-count")
 const voteForm = document.getElementById("votes-form")
 
-// Hoisting the function that will be used to fetch the data 
+// Hoisting the function that will be used to fetch the data from the baseUrl.
 function fetchingData(){
     fetch(baseUrl)
     .then((response)=>response.json())
@@ -37,12 +37,14 @@ function createCharacters(data){
     })
 }
 
-// adding an event listener for the votes button 
+// adding an event listener  that will listen for a click on the votes button 
 voteForm.addEventListener("submit", (event) =>{
     event.preventDefault();
     
+
+    //Implementing the functionality that will help us to populate the finalVotes
+
     const freshVotes=parseInt(event.target.votes.value)
-    
     let currentVotes=parseInt(characterVoteCount.textContent)
     let finalVotes= (currentVotes+=freshVotes)
     characterVoteCount.textContent=finalVotes
